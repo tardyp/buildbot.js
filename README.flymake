@@ -1,0 +1,11 @@
+apt-key adv --recv-keys --keyserver keyserver.ubuntu.com  B9316A7BC7917B12
+apt-add-repository ppa:chris-lea/node.js
+apt-get install npm
+npm install -g jshint
+wget https://raw.github.com/jegbjerg/flymake-node-jshint/master/flymake-node-jshint.el
+
+cat >>~/.emacs.d/init.el << EOF
+(require 'flymake-node-jshint)
+(setq flymake-node-jshint-config "~/.jshintrc-node.json") ; optional
+(add-hook 'js-mode-hook (lambda () (flymake-mode 1)))
+EOF
