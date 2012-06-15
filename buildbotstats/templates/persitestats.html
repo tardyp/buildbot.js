@@ -1,0 +1,30 @@
+<div class="${baseClass}" style="height:100%">
+  <style type="text/css">
+    .bordered_box {position:absolute;display:block;margin-top:20px;width:300px; border: 1px solid #759dc0; box-shadow: 0 1px 5px rgba(0, 0, 0, 0.25);}
+  </style>
+  <div class="bordered_box"  style="top:0;left:0;height:150px">
+    <table class="dijitDialogPaneContentArea" style="padding:20px">
+      <tr>
+	<td><label for="numbuilds">Number of builds:</label></td>
+	<td>
+	  <input data-dojo-type="dijit.form.NumberSpinner"
+		 value="500"
+		 smallDelta="10"
+		 constraints="{min:100,max:10000,places:0}"
+		 data-dojo-attach-point="numbuilds"
+		 style="width:200px;"
+		 />
+	</td>
+      </tr>
+    </table>
+    <div class="dijitDialogPaneActionBar"  style="margin:0">
+      <button data-dojo-type="dijit.form.Button" data-dojo-attach-event="onClick:generateCharts" type="submit">Generate</button>
+    </div>
+  </div>
+  <div class="bordered_box" style="top:0;left:310px;width:1200px;height:420px">
+    <div data-dojo-attach-point="chart1" style="width:1200px;height:400px"></div>
+  </div>
+  <div class="bordered_box" style="top:430px;left:310px;width:1200px;height:600px">
+    <div data-dojo-attach-point="builds" style="height:100%"></div>
+  </div>
+</div>
