@@ -1,0 +1,66 @@
+<div >
+  <style type="text/css">
+    .bordered_box {position:absolute;display:block;margin-top:20px;width:300px; border: 1px solid #759dc0; box-shadow: 0 1px 5px rgba(0, 0, 0, 0.25);}
+  </style>
+  <div class="bordered_box" style="top:0;left:0;height:250px">
+    <table class="dijitDialogPaneContentArea" style="padding:20px">
+      <tr>
+        <td><label for="builderbranch">Branch:</label></td>
+	<td><div data-dojo-attach-point="builderbranch" data-dojo-type="dijit.form.ValidationTextBox" data-dojo-props="regExp:'[a-z0-9]+'" style="width:200px;"></div></td>
+      </tr>
+      <tr>
+        <td><label for="buildertype">Builders Type:</label></td>
+	<td>
+	  <select data-dojo-attach-point="buildertype" data-dojo-type="dijit.form.MultiSelect" style="width:200px;">
+	    <option value="maintainer" selected="selected">maintainer</option>
+	    <option value="mergerequest">mergerequest</option>
+	    <option value="engineering">engineering</option>
+	  </select>
+	</td>
+      </tr>
+      <tr>
+        <td><label for="numbuilds">Number of builds:</label></td>
+        <td>
+	  <input data-dojo-type="dijit.form.NumberSpinner"
+		 value="1000"
+		 smallDelta="10"
+		 constraints="{min:100,max:10000,places:0}"
+		 data-dojo-attach-point="numbuilds"
+		 style="width:200px;"
+		 />
+	</td>
+      </tr>
+      <tr>
+        <td> <input  data-dojo-attach-point="duplicated_builds" data-dojo-type="dijit.form.CheckBox" checked="1"/>
+	</td>
+        <td><label for="address">show duplicated builds</label></td>
+      </tr>
+    </table>
+    <div class="dijitDialogPaneActionBar"  style="margin:0">
+      <button data-dojo-type="dijit.form.Button" data-dojo-attach-event="onClick:generateCharts" type="submit">Generate</button>
+    </div>
+  </div>
+  <div class="bordered_box" style="top:0;left:310px;width:1200px;height:420px">
+    <div data-dojo-attach-point="chart1" style="width:1200px;height:400px"></div>
+  </div>
+  <div class="bordered_box" style="top:430px;left:310px;width:1200px;height:600px">
+    <table data-dojo-attach-point="additionnal_plots" style="visibility:hidden">
+      <div data-dojo-attach-point="help_message" style="visibility:hidden">click on top chart for additional details on each build owner</div>
+      <tr><td>
+	  <div data-dojo-attach-point="chart5" style="width:380px;height:200px;margin-top:20px"></div>
+	  <div style="width:auto;text-align:center;" >num duplicated builds per patch list</div>
+	</td><td>
+	  <div data-dojo-attach-point="chart3" style="width:380px;height:200px;margin-top:20px"></div>
+	  <div style="width:auto;text-align:center;" >Build delays history</div>
+	</td><td>
+	  <div data-dojo-attach-point="chart4" style="width:380px;height:200px;margin-top:20px"></div>
+	  <div style="width:auto;text-align:center;" >Patches per build history</div>
+      </td></tr><tr><td>
+	</td><td>
+	  <div data-dojo-attach-point="chart2" style="width:380px;height:200px"></div>
+	  <div style="width:auto;text-align:center;" >Build delays ratio</div>
+      </td></tr>
+    </table>
+  </div>
+</div>
+
