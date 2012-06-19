@@ -3,4 +3,7 @@ install: buildbot_js_deps.tgz
 buildbot_js_deps.tgz:
 	wget http://buildbot.tl.intel.com/buildbot_js_deps.tgz
 	tar xzf buildbot_js_deps.tgz
-
+.PHONY: release
+release:
+	util/buildscripts/build.sh --bin java -p build.js --release
+	cd ../config/public_html; rm js; ln -sf ../../buildbot.js/release/dojo js

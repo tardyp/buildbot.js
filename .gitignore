@@ -1,5 +1,6 @@
 *~
 buildbot_js_deps.tgz
+util
 dgrid
 dgrid.js
 dijit
